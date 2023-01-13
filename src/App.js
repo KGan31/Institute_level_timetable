@@ -17,7 +17,7 @@ import IT from './components/pages/IT';
 import Mechanical from './components/pages/Mechanical';
 import Extc from './components/pages/Extc';
 import Production from './components/pages/Production';
-
+import Map from './components/pages/Map';
 
 
 
@@ -31,6 +31,7 @@ function App() {
       <Route path='/' element={<Home/>}/>
        <Route path='/contact' element={<ContactUs/>}/> 
       <Route path='/signup' element={<SignUp/>}/>
+      <Route path='/map' element={<Map/>}/>
       <Route path='/events' element={<Events/>}/>
       <Route path='/branch' element={<Branch/>}/>
       <Route path='/extc' element={<Extc/>}/>
