@@ -7,19 +7,11 @@ import ContactUs from './components/pages/ContactUs';
 import SignUp from './components/pages/SignUp';
 import Home from './components/pages/Home';
 import Events from './components/pages/Events';
-import Branch from './components/pages/Branch';
-import Computer from './components/pages/Computer';
-import Civil from './components/pages/Civil';
-import Electrical from './components/pages/Electrical';
-import Electronics from './components/pages/Electronics';
-import Textile from './components/pages/Textile';
-import IT from './components/pages/IT';
-import Mechanical from './components/pages/Mechanical';
-import Extc from './components/pages/Extc';
-import Production from './components/pages/Production';
 import Map from './components/pages/Map';
-
-
+import Create from './components/pages/Create';
+import BlogDetails from './components/pages/BlogDetails';
+import StudentDetails from './components/pages/StudentDetails';
+//import BlogList from './components/pages/BlogList';
 
 
 
@@ -29,21 +21,13 @@ function App() {
     <Navbar/>
     <Routes>
       <Route path='/' element={<Home/>}/>
-       <Route path='/contact' element={<ContactUs/>}/> 
+      <Route path='/contact' element={<ContactUs/>}/> 
       <Route path='/signup' element={<SignUp/>}/>
       <Route path='/map' element={<Map/>}/>
       <Route path='/events' element={<Events/>}/>
-      <Route path='/branch' element={<Branch/>}/>
-      <Route path='/extc' element={<Extc/>}/>
-      <Route path='/electrical' element={<Electrical/>}/>
-      <Route path='/electronics' element={<Electronics/>}/>
-      <Route path='/mechanical' element={<Mechanical/>}/>
-      <Route path='/computer' element={<Computer/>}/>
-      <Route path='/textile' element={<Textile/>}/>
-      <Route path='/civil' element={<Civil/>}/>
-      <Route path='/mechanical' element={<Mechanical/>}/>
-       <Route path='/production' element={<Production/>}/>
-      <Route path='/it' element={<IT/>}/>
+      <Route path="/blogs/:id" element = {<BlogDetails/>}/>
+      <Route path='/create' element = {<Create/>}/>
+      <Route path='/studentdetails' element = {<StudentDetails/>}/>
     </Routes>
   </Router>
   );

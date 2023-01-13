@@ -1,6 +1,5 @@
 import React,{useState} from "react";
 import {Button} from './components/Button';
-import Dropdown from './components/Dropdown';
 import './components/Navbar.css';
 import {Link} from 'react-router-dom';
 
@@ -53,12 +52,6 @@ const onMouseLeave=()=>{
             onMouseLeave={onMouseLeave}
             >
             
-            <Link to='/branch' className="nav-links" onClick={closeMobileMenu}>Branch
-            <i className="fas fa-caret-down"/>
-            </Link>
-            {dropdown && <Dropdown/>}
-            
-            
             </li> 
 
             <li className="nav-item">
@@ -70,12 +63,15 @@ const onMouseLeave=()=>{
             <Link to='/sign-up' className="nav-links-mobile" onClick={closeMobileMenu}>Sign-up
             </Link>
              
-             </li>
+             </li> 
              <li className="nav-item">            
-            <Link to='/map' className="nav-links-mobile" onClick={closeMobileMenu}>Map
+            <Link to='/map' className="nav-links" onClick={closeMobileMenu}>Map
             </Link>
-             
             </li> 
+            <li className="nav-item">            
+            <Link to='/studentdetails' className="nav-links" onClick={closeMobileMenu}>Timetable
+            </Link>
+            </li>
          </ul>
          <Button/>
      </nav>

@@ -1,25 +1,33 @@
 import React from 'react';
 import '../../App.css';
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom';
 
 
 const LogIn = () => {
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
-
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         const credentials = {username,password};
+        console.log(credentials);
+        if(credentials.username == 'User' && credentials.password == 'Pass')
+        {
+            navigate("/create");
+        }
+        else
+        {
+            alert("Invalid Credentials");
+        }
 
         //setIsPending(true);
-
-        console.log(credentials);
-    }
+    };
 
     return ( 
         <div className="login">
             <h2>Admin Login</h2>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <label>Username</label>
                 <input 
                 type="text" 
@@ -35,7 +43,7 @@ const LogIn = () => {
                 value = {password}
                 onChange = {(e) => setPassword(e.target.value)}
                 />
-                <button>Submit</button>
+                <button onClick={handleSubmit}>Submit</button>
             </form>
         </div>
     );

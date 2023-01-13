@@ -1,0 +1,16 @@
+{
+  "blogs": [
+    {
+      "title": "My Blog",
+      "body": "Hello World",
+      "author": "yoshi",
+      "id": 4
+    },
+    {
+      "title": "Quad",
+      "body": "Technical fest",
+      "author": "Technovanza",
+      "id": 5
+    }
+  ]
+}
