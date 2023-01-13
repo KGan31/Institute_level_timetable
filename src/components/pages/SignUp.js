@@ -12,7 +12,7 @@ const LogIn = () => {
         e.preventDefault();
         const credentials = {username,password};
         console.log(credentials);
-        if(credentials.username == 'User' && credentials.password == 'Pass')
+        if(credentials.username === 'User' && credentials.password === 'Pass')
         {
             navigate("/create");
         }
