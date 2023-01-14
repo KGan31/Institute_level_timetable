@@ -1,22 +1,21 @@
-import { useState } from "react";
+import React,{Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Create = () => {
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
-    const [author, setAuthor] = useState('mario');
+    const [classroom, setClassroom] = useState('');
+    const [capacity, setCapacity] = useState('');
+    // const [author, setAuthor] = useState('mario');
     const [isPending, setIsPending] = useState(false);
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => { 
         e.preventDefault();
-        const blog = {title, body, author};
+        const data = {classroom, capacity};
         setIsPending(true);
-
-        fetch('http://localhost:8000/blogs',{
+        const response = await fetch('http://localhost:5000/tt',{
             method: 'Post',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(blog),
+            body: JSON.stringify(data),
         }).then(() => {
             console.log('new blog added');
             setIsPending(false);
@@ -26,23 +25,24 @@ const Create = () => {
     }  
 
     return (  
+        <Fragment>
         <div className="create">
             <h2>Add a New Event</h2>
             <form onSubmit={handleSubmit}>
-                <label>Event Venue</label>
+                <label>Enter Class</label>
                 <input 
                 type="text"  
                 required
-                value = {title}
-                onChange = {(e) => setTitle(e.target.value)}
+                value = {classroom}
+                onChange = {(e) => setClassroom(e.target.value)}
                 />
-                <label >Event Description:</label>
+                {/* <label >Event Description:</label>
                 <textarea 
                 required
                 value={body}
                 onChange = {(e) => setBody(e.target.value)}
-                ></textarea>
-                <label>Committee:</label>
+                ></textarea> */}
+                {/* <label>Committee:</label>
                 <select
                     value = {author}
                     onChange = {(e) => setAuthor(e.target.value)}
@@ -56,12 +56,20 @@ const Create = () => {
                     <option value="COC">COC</option>
                     <option value="SRA">SRA</option>
                     
-                </select>
+                </select> */}
+                <label>Enter Capacity</label>
+                <input 
+                type="number"  
+                required
+                value = {capacity}
+                onChange = {(e) => setCapacity(e.target.value)}
+                />
                 {!isPending && <button>Add Event</button>}
                 {isPending && <button disabled>Adding Event....</button>}
                 
             </form>
         </div>
+        </Fragment>
     );
 }
  

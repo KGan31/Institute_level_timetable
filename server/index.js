@@ -2,6 +2,12 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
+<<<<<<< HEAD
+const bodyparser = require("body-parser");
+
+const jsonParser = bodyparser.json();
+=======
+>>>>>>> a9825199026ad756a34db931718e0257c8ba6459
 
 //middleware
 app.use(cors())
@@ -10,10 +16,11 @@ app.use(express.json());
 //create
 app.post("/tt",async(req,res) =>{
     try{
-        const {description} = req.body();
+        const classroom = req.body.classroom;
+        const capacity = req.body.capacity
         const newtt = await pool.query(
-            "INSERT INTO tt (description) VALUES($1) RETURNING *"
-            [description]
+            "INSERT INTO classinfo (classname, capacity) VALUES ($1,$2) RETURNING *",
+            [classroom,capacity]
             );
         
         res.json(newtt);
