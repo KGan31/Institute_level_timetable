@@ -20,9 +20,11 @@ const navigate = useNavigate();
             {error && <div>{error}</div>}
             {blog && (
                 <article>
-                    <h2>{blog.title}</h2>
-                    <p>Committee{blog.author}</p>
-                    <div>{blog.body}</div>
+                    <h2>{blog.venue}</h2>
+                    <p>Committee{blog.organiser}</p>
+                    <p>{blog.description}</p>
+                    <p>{blog.date}</p>
+                    <p>{blog.start_time} to {blog.end_time}</p>
                     <button onClick={handleClick}>delete</button>
                 </article>
             )}

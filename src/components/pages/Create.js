@@ -1,21 +1,39 @@
-import React,{Fragment, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Create = () => {
-    const [classroom, setClassroom] = useState('');
-    const [capacity, setCapacity] = useState('');
-    // const [author, setAuthor] = useState('mario');
+    // const [id, setid] = useState('');
+    // const [day, setDay] = useState('');
+    // const [end_time, endtime] = useState('');
+    // const[subject,setSubject]=useState('');
+    // const[faculty,setFaculty]=useState('');
+    // const[status,setStatus]=useState('');
+    // const[semester,setSemester]=useState('');
+    // const[branch,setStat]=useState('');
+    // const[classroom,setClassroom]=useState('');
+    // const [start_time, setstarttime] = useState('mario');
+
+    const [date, setDate] = useState('');
+    const [organiser, setorganiser] = useState('');
+    const [venue, setVenue] = useState('');
+    const [start_time, setstarttime] = useState('');
+    const [end_time, setendtime] = useState('');
+    const [description, setdescription] = useState('');
+
+
+
     const [isPending, setIsPending] = useState(false);
     const navigate = useNavigate();
 
-    const handleSubmit = async(e) => { 
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const data = {classroom, capacity};
+        const blog = {date,organiser,venue,start_time,end_time,description};
         setIsPending(true);
-        const response = await fetch('http://localhost:5000/tt',{
+
+        fetch('http://localhost:5000/tt',{
             method: 'Post',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(data),
+            body: JSON.stringify(blog),
         }).then(() => {
             console.log('new blog added');
             setIsPending(false);
@@ -25,27 +43,51 @@ const Create = () => {
     }  
 
     return (  
-        <Fragment>
         <div className="create">
             <h2>Add a New Event</h2>
             <form onSubmit={handleSubmit}>
-                <label>Enter Class</label>
+                <label>Event Date</label>
                 <input 
                 type="text"  
                 required
-                value = {classroom}
-                onChange = {(e) => setClassroom(e.target.value)}
+                value = {date}
+                onChange = {(e) => setDate(e.target.value)}
                 />
-                {/* <label >Event Description:</label>
+
+                <label>Event Venue</label>
+                <input 
+                type="text"  
+                required
+                value = {venue}
+                onChange = {(e) => setVenue(e.target.value)}
+                />
+
+                <label>Start Time</label>
+                <input 
+                type="text"  
+                required
+                value = {start_time}
+                onChange = {(e) => setstarttime(e.target.value)}
+                />
+
+                <label>End Time</label>
+                <input 
+                type="text"  
+                required
+                value = {end_time}
+                onChange = {(e) => setendtime(e.target.value)}
+                />
+
+                <label >Event Description:</label>
                 <textarea 
                 required
-                value={body}
-                onChange = {(e) => setBody(e.target.value)}
-                ></textarea> */}
-                {/* <label>Committee:</label>
+                value={description}
+                onChange = {(e) => setdescription(e.target.value)}
+                ></textarea>
+                <label>Organiser:</label>
                 <select
-                    value = {author}
-                    onChange = {(e) => setAuthor(e.target.value)}
+                    value = {organiser}
+                    onChange = {(e) => setorganiser(e.target.value)}
                 >
                     <option value="Technovanza">Technovanza</option>
                     <option value="Rangawardhan">Rangawardhan</option>
@@ -56,20 +98,12 @@ const Create = () => {
                     <option value="COC">COC</option>
                     <option value="SRA">SRA</option>
                     
-                </select> */}
-                <label>Enter Capacity</label>
-                <input 
-                type="number"  
-                required
-                value = {capacity}
-                onChange = {(e) => setCapacity(e.target.value)}
-                />
+                </select>
                 {!isPending && <button>Add Event</button>}
                 {isPending && <button disabled>Adding Event....</button>}
                 
             </form>
         </div>
-        </Fragment>
     );
 }
  

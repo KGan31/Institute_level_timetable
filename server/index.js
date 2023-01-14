@@ -2,12 +2,9 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
-<<<<<<< HEAD
 const bodyparser = require("body-parser");
 
 const jsonParser = bodyparser.json();
-=======
->>>>>>> a9825199026ad756a34db931718e0257c8ba6459
 
 //middleware
 app.use(cors())
