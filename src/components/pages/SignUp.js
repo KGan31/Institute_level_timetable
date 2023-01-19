@@ -37,7 +37,7 @@ const LogIn = () => {
                 onChange = {(e) => setUsername(e.target.value)}
                 />
                 <label>Password</label>
-                <input type="text"
+                <input type="password"
                 required
                 placeholder="Password"
                 value = {password}
