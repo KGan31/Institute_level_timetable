@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect  } from "react";
 
 
 const useFetch = (url) => {
@@ -6,6 +6,7 @@ const useFetch = (url) => {
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
     useEffect(()=>{
+        console.log("code reaceh here");
         const abortCont = new AbortController();
 
         setTimeout(()=> 

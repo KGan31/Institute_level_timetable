@@ -18,7 +18,7 @@ const StudentDetails = () => {
                     value = {year}
                     onChange = {(e) => setYear(e.target.value)}
                 >
-                    <option value="I">1st Year</option>
+                    <option value='1'>1st Year</option>
                     <option value="II">2nd Year</option>
                     <option value="III">3rd Year</option>
                     <option value="IV">4th Year</option>
