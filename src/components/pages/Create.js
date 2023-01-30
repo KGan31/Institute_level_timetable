@@ -1,6 +1,8 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
+import { useState ,useEffect } from "react";
+
+import { useNavigate } from "react-router-dom";
+import {Link} from 'react-router-dom';
 const Create = () => {
     // const [id, setid] = useState('');
     // const [day, setDay] = useState('');
@@ -19,6 +21,8 @@ const Create = () => {
     const [start_time, setstarttime] = useState('');
     const [end_time, setendtime] = useState('');
     const [description, setdescription] = useState('');
+
+    const [Vtt, setVtt] = useState('');
 
 
 
@@ -40,7 +44,23 @@ const Create = () => {
             navigate('/');
         })
 
-    }  
+    } 
+    // trying to view tt on clicking viewclick button 
+    const viewTT = async()=> { 
+        try {
+            const response = await fetch("http://localhost:5000/events")
+            const jsonData =await response.json()
+            console.log(jsonData);
+            setVtt(jsonData);
+            
+        } catch (err) {
+            console.error(err.message);
+        }
+      }
+      useEffect(()=>{
+        viewTT();
+      },[]);
+     
 
     return (  
         <div className="create">
@@ -48,13 +68,16 @@ const Create = () => {
             <form onSubmit={handleSubmit}>
                 <label>Event Date</label>
                 <input 
-                type="text"  
+
+                type="date"  
+
                 required
                 value = {date}
                 onChange = {(e) => setDate(e.target.value)}
                 />
 
                 <label>Event Venue</label>
+
                 <input 
                 type="text"  
                 required
@@ -64,7 +87,7 @@ const Create = () => {
 
                 <label>Start Time</label>
                 <input 
-                type="text"  
+                type="number"  
                 required
                 value = {start_time}
                 onChange = {(e) => setstarttime(e.target.value)}
@@ -72,8 +95,9 @@ const Create = () => {
 
                 <label>End Time</label>
                 <input 
-                type="text"  
+                type="number"  
                 required
+
                 value = {end_time}
                 onChange = {(e) => setendtime(e.target.value)}
                 />
@@ -103,6 +127,13 @@ const Create = () => {
                 {isPending && <button disabled>Adding Event....</button>}
                 
             </form>
+            <div className="create-view-tt">
+                <button >
+                    <Link to='/viewTT'  >
+                        View Time Table
+                    </Link>
+                </button>
+            </div>
         </div>
     );
 }

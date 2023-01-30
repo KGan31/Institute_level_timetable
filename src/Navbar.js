@@ -60,7 +60,7 @@ const onMouseLeave=()=>{
             </li>
 
             <li className="nav-item">            
-            <Link to='/sign-up' className="nav-links-mobile" onClick={closeMobileMenu}>Sign-up
+            <Link to='/sign-up' className="nav-links-mobile" onClick={closeMobileMenu}>Login
             </Link>
              
              </li> 

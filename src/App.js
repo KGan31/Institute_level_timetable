@@ -11,10 +11,8 @@ import Map from './components/pages/Map';
 import Create from './components/pages/Create';
 import BlogDetails from './components/pages/BlogDetails';
 import StudentDetails from './components/pages/StudentDetails';
-import AL_Block from './components/pages/AL_Block';
-import DL_Block from './components/pages/DL_Block';
-import Quadrangle from './components/pages/Quadrangle';
-import Ground from './components/pages/Ground';
+
+import ViewTT from './components/pages/viewTT';
 
 //import BlogList from './components/pages/BlogList';
 
@@ -33,10 +31,8 @@ function App() {
       <Route path="/blogs/:id" element = {<BlogDetails/>}/>
       <Route path='/create' element = {<Create/>}/>
       <Route path='/studentdetails' element = {<StudentDetails/>}/>
-      <Route path='/al_block' element = {<AL_Block/>}/>
-      <Route path='/dl_block' element = {<DL_Block/>}/>
-      <Route path='/ground' element = {<Ground/>}/>
-      <Route path='/quadrangle' element = {<Quadrangle/>}/>
+
+      <Route path='/viewTT' element = {<ViewTT/>}/>
 
     </Routes>
   </Router>

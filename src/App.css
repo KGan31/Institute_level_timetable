@@ -46,17 +46,16 @@
 
 }
 
-h1.par {
+h1{
   font-family: 'Times New Roman', Times, serif;
   font-size: 40px;
   line-height: 28px;
-  text-align: justify;
-  margin: 0;
+  text-align: center;
+  margin: 0px;
   display: block;
-
-
-
-}
+  padding-top: 2%;
+  padding-bottom: 0.5%;
+  }
 
 h2.par {
   font-size: 20px;
@@ -113,7 +112,40 @@ h2.par {
   background-repeat: no-repeat;
   color: #fff;
   font-size: 60px;
+  
 }
+.gradient {
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(334deg, #6b97f7, #7525e2, #f7137e);
+	background-size: 180% 180%;
+	animation: gradient-animation 6s ease infinite;
+}
+
+@keyframes gradient-animation {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.center-table{
+  justify-content: center;
+  display: flex;
+}
+th, td ,tr{
+  padding: 15px;
+  text-align: center;
+  background-color: #020303;
+  color: white;
+  margin-left: auto;
+  margin-left: auto;
+}
+tr:hover {background-color: coral;}
 
 /*SignUp*/
 /* Full-width input fields */
@@ -253,4 +285,7 @@ h2.par {
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+}
+.create-view-tt {
+  margin-top: 2%;
 }
