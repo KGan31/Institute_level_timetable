@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import {Link} from 'react-router-dom';
 const Create = () => {
     // const [id, setid] = useState('');
     // const [day, setDay] = useState('');
@@ -54,7 +54,7 @@ const Create = () => {
         }
       }
       useEffect(()=>{
-        getEvents();
+        viewTT();
       },[]);
      
 
@@ -121,7 +121,9 @@ const Create = () => {
             </form>
             <div className="create-view-tt">
                 <button >
-                    View Time Table
+                    <Link to='/viewTT'  >
+                        View Time Table
+                    </Link>
                 </button>
             </div>
         </div>

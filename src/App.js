@@ -11,6 +11,7 @@ import Map from './components/pages/Map';
 import Create from './components/pages/Create';
 import BlogDetails from './components/pages/BlogDetails';
 import StudentDetails from './components/pages/StudentDetails';
+import ViewTT from './components/pages/viewTT';
 //import BlogList from './components/pages/BlogList';
 
 
@@ -28,6 +29,7 @@ function App() {
       <Route path="/blogs/:id" element = {<BlogDetails/>}/>
       <Route path='/create' element = {<Create/>}/>
       <Route path='/studentdetails' element = {<StudentDetails/>}/>
+      <Route path='/viewTT' element = {<ViewTT/>}/>
     </Routes>
   </Router>
   );
