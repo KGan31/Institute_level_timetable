@@ -1,4 +1,6 @@
+
 import { useState ,useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 import {Link} from 'react-router-dom';
 const Create = () => {
@@ -19,7 +21,9 @@ const Create = () => {
     const [start_time, setstarttime] = useState('');
     const [end_time, setendtime] = useState('');
     const [description, setdescription] = useState('');
+
     const [Vtt, setVtt] = useState('');
+
 
 
     const [isPending, setIsPending] = useState(false);
@@ -64,13 +68,16 @@ const Create = () => {
             <form onSubmit={handleSubmit}>
                 <label>Event Date</label>
                 <input 
+
                 type="date"  
+
                 required
                 value = {date}
                 onChange = {(e) => setDate(e.target.value)}
                 />
 
                 <label>Event Venue</label>
+
                 <input 
                 type="text"  
                 required
@@ -90,6 +97,7 @@ const Create = () => {
                 <input 
                 type="number"  
                 required
+
                 value = {end_time}
                 onChange = {(e) => setendtime(e.target.value)}
                 />

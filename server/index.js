@@ -3,6 +3,11 @@ const app = express();
 const cors = require("cors");
 const pool = require("./db");
 
+
+const bodyparser = require("body-parser");
+
+
+
 //middleware
 app.use(cors())
 app.use(express.json());
