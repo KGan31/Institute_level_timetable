@@ -22,5 +22,5 @@ Future Milestones : send alert when there is a possibility of rush in the hallwa
 ![image](./public/login.png = 250x250)
 
 ![image](./public/add-new-event.png = 250x250)
-<img src="./public/add-new-event.png " alt="newEventForm" width="500" height="400"/>
+<img src="./public/add-new-event.png " alt="newEventForm" width="560" height="400"/>
 
