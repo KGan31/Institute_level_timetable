@@ -8,19 +8,21 @@ This project focuses on avoiding overlapping events and ease the classroom allot
 Future Milestones : send alert when there is a possibility of rush in the hallway , staggared lunch breaks etc. 
 **Screenshots**
 ***Home page***
-![image](./public/Home1.png = 250x250)
 
-![image](./public/Home2.png = 250x250)
+<img src="./public/Home1.png " alt="Home" width="580" height="400"/>
 
-![image](./public/params.png = 250x250)
+<img src="./public/Home2.png" alt="Home" width="580" height="400"/>
+
+
+<img src="./public/params.png" alt="IndivEvent" width="580" height="400"/>
 
 ***Events page***
-![image](./public/events.png = 250x250)
+
+<img src="./public/events.png" alt="Events-Purple" width="580" height="400"/>
 
 ***Admin Login***
 
-![image](./public/login.png = 250x250)
+<img src="./public/login.png" alt="Adminlogin" width="580" height="400"/>
 
-![image](./public/add-new-event.png = 250x250)
-<img src="./public/add-new-event.png " alt="newEventForm" width="560" height="400"/>
+<img src="./public/add-new-event.png " alt="newEventForm" width="580" height="400"/>
 
