@@ -58,12 +58,12 @@ app.get("/events",async(req,res) => {
 
 app.get("/events/:id",async(req,res) =>{
     try{
-        const {id} = req.params;
-        const tt = await pool.query("SELECT * FROM events WHERE id = $1",{id})
+       const {id} = req.params;
+        const tt = await pool.query("SELECT * FROM events WHERE id = $1",[id])
 
         res.json(tt);
-    } catch {err} {
-        console.log(err.message);
+    } catch (err){
+        console.log(err);
     }
 });
 

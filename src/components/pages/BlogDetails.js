@@ -3,11 +3,12 @@ import useFetch from "./useFetch";
 
 const BlogDetails = () => {
     const {id} = useParams();
-    const {data: blog, error, isPending} = useFetch('http://localhost:8000/blogs/' + id);
+    const {data: blog, error, isPending} = useFetch('http://localhost:5000/events/' + id);
 const navigate = useNavigate();
+console.log(blog);
 
     const handleClick = () => {
-        fetch('http://localhost:8000/blogs/' + blog.id, {
+        fetch('http://localhost:5000/events/' + blog.id, {
             method: 'DELETE'
         }).then(() => {
             navigate('/');
@@ -20,11 +21,11 @@ const navigate = useNavigate();
             {error && <div>{error}</div>}
             {blog && (
                 <article>
-                    <h2>{blog.venue}</h2>
-                    <p>Committee{blog.organiser}</p>
-                    <p>{blog.description}</p>
-                    <p>{blog.date}</p>
-                    <p>{blog.start_time} to {blog.end_time}</p>
+                    <h2>{blog.rows[0].venue}</h2>
+                    <p>Committee : {blog.rows[0].organiser}</p>
+                    <p><b>Date</b>{blog.rows[0].date}</p>
+                   
+                    <p> <b>Time:</b>{blog.rows[0].start_time} to {blog.rows[0].end_time}</p>
                     <button onClick={handleClick}>delete</button>
                 </article>
             )}

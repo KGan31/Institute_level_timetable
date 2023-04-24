@@ -200,12 +200,23 @@ tr:hover {background-color: coral;}
   text-decoration: none;
 }
 
+.blog-details{
+  padding-top: 20px;
+text-align: center;
+}
 .blog-details h2 {
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 10px;
 }
-
+.blog-list{
+  width: 100%;
+  text-align: center;
+}
+.blog-list-title{
+  color: #020303;
+  padding-top: 15px;
+}
 .blog-details div {
   margin: 20px 0;
 }
