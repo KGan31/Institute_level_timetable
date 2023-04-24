@@ -9,20 +9,20 @@ Future Milestones : send alert when there is a possibility of rush in the hallwa
 **Screenshots**
 ***Home page***
 
-<img src="./public/Home1.png " alt="Home" width="595" height="390"/>
+<img src="./public/Home1.png " alt="Home" width="615" height="390"/>
 
-<img src="./public/Home2.png" alt="Home" width="595" height="390"/>
+<img src="./public/Home2.png" alt="Home" width="615" height="390"/>
 
 
-<img src="./public/params.png" alt="IndivEvent" width="595" height="390"/>
+<img src="./public/params.png" alt="IndivEvent" width="615" height="390"/>
 
 ***Events page***
 
-<img src="./public/events.png" alt="Events-Purple" width="595" height="390"/>
+<img src="./public/events.png" alt="Events-Purple" width="615" height="390"/>
 
 ***Admin Login***
 
-<img src="./public/login.png" alt="Adminlogin" width="595" height="390"/>
+<img src="./public/login.png" alt="Adminlogin" width="615" height="390"/>
 
-<img src="./public/add-new-event.png " alt="newEventForm" width="595" height="390"/>
+<img src="./public/add-new-event.png " alt="newEventForm" width="615" height="390"/>
 
