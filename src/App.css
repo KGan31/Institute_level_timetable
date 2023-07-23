@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +10,7 @@
   overflow-x: hidden;
 }
 
-.home,
+
 .contact,
 .signup,
 .events,
@@ -41,8 +45,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   flex-wrap: nowrap;
-  flex-direction: column;
-  color: #fff;
+  /* flex-direction: column; */
+  /* color: #fff; */
 
 }
 
@@ -183,6 +187,14 @@ tr:hover {background-color: coral;}
   cursor: pointer;
 }
 /*blogs*/
+.blog-background{
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 1.5rem; 
+  /* justify-content: center;  */
+  width: 100%; 
+}
+
 .blog-preview {
   padding: 10px 16px;
   margin: 20px 0;
@@ -228,6 +240,23 @@ text-align: center;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.event-card{
+  overflow: hidden; 
+border-radius: 0.25rem; 
+width: 33.333333%; 
+max-width: 24rem; 
+transition-property: all;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition-duration: 300ms; 
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+:hover {
+ --transform-scale-x: 1.05;
+--transform-scale-y: 1.05; 
+cursor: pointer; 
+ }
 }
 
 /*StudentDetails*/

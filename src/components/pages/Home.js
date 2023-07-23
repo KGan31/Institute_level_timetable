@@ -3,9 +3,8 @@ import '../../App.css';
 import BlogList from './BlogList';
 import useFetch from './useFetch';
 
-
 export default function Home(){
-    const {data: blogs, isPending, error} = useFetch("http://localhost:5000/events");
+    const {data: blogs, isPending, error} = useFetch("http://localhost:5000/api/events");
     return(
         <>
         <div className='home'>

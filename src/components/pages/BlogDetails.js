@@ -3,9 +3,9 @@ import useFetch from "./useFetch";
 
 const BlogDetails = () => {
     const {id} = useParams();
-    const {data: blog, error, isPending} = useFetch('http://localhost:5000/events/' + id);
-const navigate = useNavigate();
-console.log(blog);
+    const {data: blog, error, isPending} = useFetch('http://localhost:5000/api/events/' + id);
+    const navigate = useNavigate();
+    console.log(blog);
 
     const handleClick = () => {
         fetch('http://localhost:5000/events/' + blog.id, {
