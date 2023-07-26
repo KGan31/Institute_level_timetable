@@ -6,8 +6,6 @@ const pool = require("./db");
 
 const bodyparser = require("body-parser");
 
-
-
 //middleware
 app.use(cors())
 app.use(express.json());
@@ -47,23 +45,54 @@ app.post("/tt",async(req,res) =>{
     }
 });
 
-app.get("/events",async(req,res) => {
+app.get("/api/events",async(req,res) => {
     try{
         const display = await pool.query("SELECT * FROM events");
-        res.json(display.rows);
+        const formated_dateTime = [];
+        for(let i=0; i< display.rows.length; i++){
+            const date = display.rows[i].date;
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            const formated_date = date.toLocaleDateString('en-US', options);
+
+            const startTime = new Date(`1970-01-01T${display.rows[i].start_time}Z`);
+            const endTime = new Date(`1970-01-01T${display.rows[i].end_time}Z`);
+            
+            const formatter = new Intl.DateTimeFormat('en-US', {
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true,
+                timeZone: 'UTC', // Set the time zone to UTC
+              });
+
+            const formattedStartTime = formatter.format(startTime);
+            const formattedEndTime = formatter.format(endTime);
+
+            const obj = {
+                date: formated_date,
+                start_time: formattedStartTime,
+                end_time: formattedEndTime
+            }
+
+            formated_dateTime[i] = obj;
+        }
+        const data = [];
+        data[0] = display.rows;
+        data[1] = formated_dateTime;
+        res.json(data);
+        // console.log(display.rows);
     } catch (err){
         console.error(err.message);
     }
 });
 
-app.get("/events/:id",async(req,res) =>{
+app.get("/api/events/:id",async(req,res) =>{
     try{
        const {id} = req.params;
         const tt = await pool.query("SELECT * FROM events WHERE id = $1",[id])
 
         res.json(tt);
     } catch (err){
-        console.log(err);
+        console.log(err.message);
     }
 });
 

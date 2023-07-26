@@ -36,7 +36,7 @@ const onMouseLeave=()=>{
          <Link to='/' className="navbar-logo">VJTI Timetable<i className="fab fa-firstdraft"/>
          </Link> 
          <div className="menu-icon" onClick={handleClick}>
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
+            <i className={click ? 'fas fa-times' : 'fas fa-bars'}></i>
          </div>
          <ul className={click ? 'nav-menu active' :'nav-menu'}>
             <li className="nav-item">
