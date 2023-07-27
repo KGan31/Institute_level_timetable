@@ -9,9 +9,11 @@ Future Milestones : send alert when there is a possibility of rush in the hallwa
 **Screenshots**
 ***Home page***
 
-<img src="./public/Home1.png " alt="Home" width="635" height="390"/>
+<!-- <img src="./public/Home1.png " alt="Home" width="635" height="390"/> -->
+<img src="./public/home_ss1.png " alt="Home" width="635" height="390"/>
 
-<img src="./public/Home2.png" alt="Home" width="635" height="390"/>
+<!-- <img src="./public/Home2.png" alt="Home" width="635" height="390"/> -->
+<img src="./public/home_ss2.png" alt="Home" width="635" height="390"/>
 
 
 <img src="./public/params.png" alt="IndivEvent" width="635" height="390"/>
