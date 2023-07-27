@@ -1,5 +1,5 @@
 import { useState, useEffect  } from "react";
-
+// import axios from 'axios';
 
 const useFetch = (url) => {
     const [data,setData] = useState(null);
@@ -19,9 +19,11 @@ const useFetch = (url) => {
             return res.json();
         })
         .then(data => {
+            console.log(data);
             setData(data);
             setIsPending(false);
             setError(null);
+ 
         })
         .catch(err=>{
             if(err.name === 'AbortError'){
@@ -32,6 +34,12 @@ const useFetch = (url) => {
             }
         })
         },0);
+
+        // axios.get('/api/events').then(res => {
+        //     console.log(res);
+        // }).catch(err => {
+        //     console.error(err);
+        // })
 
         return () => abortCont.abort();
     }, [url]);
