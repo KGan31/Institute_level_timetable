@@ -12,7 +12,11 @@ import Create from './components/pages/Create';
 import BlogDetails from './components/pages/BlogDetails';
 import StudentDetails from './components/pages/StudentDetails';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
+
 import ViewTT from './components/pages/viewTT';
+import { AuthProvider } from './auth/AuthContext';
 
 //import BlogList from './components/pages/BlogList';
 
@@ -20,22 +24,25 @@ import ViewTT from './components/pages/viewTT';
 
 function App() {
   return (
-  <Router>
-    <Navbar/>
-    <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/contact' element={<ContactUs/>}/> 
-      <Route path='/signup' element={<SignUp/>}/>
-      <Route path='/map' element={<Map/>}/>
-      <Route path='/events' element={<Events/>}/>
-      <Route path="/events/:id" element = {<BlogDetails/>}/>
-      <Route path='/create' element = {<Create/>}/>
-      <Route path='/studentdetails' element = {<StudentDetails/>}/>
+  <AuthProvider>
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/contact' element={<ContactUs/>}/> 
+        <Route path='/signup' element={<SignUp/>}/>
+        <Route path='/map' element={<Map/>}/>
+        <Route path='/events' element={<Events/>}/>
+        <Route path="/events/:id" element = {<BlogDetails/>}/>
+        <Route path='/create' element = {<Create/>}/>
+        <Route path='/studentdetails' element = {<StudentDetails/>}/>
 
-      <Route path='/viewTT' element = {<ViewTT/>}/>
+        <Route path='/viewTT' element = {<ViewTT/>}/>
 
-    </Routes>
-  </Router>
+      </Routes>
+      <ToastContainer/> {/* required for displaying the toast notification */}
+    </Router>
+  </AuthProvider>
   );
 }
 

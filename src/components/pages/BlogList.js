@@ -64,7 +64,10 @@ const BlogList = ({blogs, title}) => {
         if (isMobile) {
             const buttons = blogs[0].map((blog, index) => ({
               index: index,
-              onClick: () => {},
+              onClick: (buttonInd) => {
+                setActiveStatus(buttonInd);
+                setActiveIndex([buttonInd]);
+              },
             }));
             setStatusButtons(buttons);
         } 
@@ -88,7 +91,7 @@ const BlogList = ({blogs, title}) => {
         //   console.log(isMobile);
         //   console.log(StatusButtons);
 
-    }, [blogs, isMobile])
+    }, [blogs, isMobile, activeIndex])
 
     const handlePrevClick = () => {
         setActiveIndex((prevActiveIndex) => {
@@ -182,13 +185,13 @@ const BlogList = ({blogs, title}) => {
                     ))}
                 </div>
 
-                {activeIndex[0] > 0 && (<div className='absolute top-1/2 left-0 sm:pl-4 pl-2'>
+                {!isMobile && activeIndex[0] > 0 && (<div className='absolute top-1/2 left-0 sm:pl-4 pl-2'>
                     <button className='cursor-pointer' onClick={handlePrevClick}>
                         <img src='/images/left_arrow.svg' className='sm:w-10 w-5 sm:h-10 h-5'/>
                     </button>
                 </div>)}
 
-                {activeIndex[activeIndex.length - 1] < blogs[0].length - 1 && (<div className='absolute top-1/2 right-0 pr-4'>
+                {!isMobile && activeIndex[activeIndex.length - 1] < blogs[0].length - 1 && (<div className='absolute top-1/2 right-0 pr-4'>
                     <button className='cursor-pointer' onClick={handleNextClick}>
                         <img src='/images/right_arrow.svg' className='sm:w-10 w-5 sm:h-10 h-5'/>
                     </button>
@@ -196,16 +199,14 @@ const BlogList = ({blogs, title}) => {
                 </div>)}
 
                 <div className='flex justify-center gap-2 mb-5'>
-                    {
-                        StatusButtons.map((button, index) => (
-                            
-                                <button key={index} className={`cursor-pointer rounded-full border-2 w-4 h-4 ${active(button.index)}` }onClick={() => button.onClick(index)}>
-                                </button>
-                            
-                            // <p key={index}>{button.index}</p>
-                        ))
-                    }
-                </div>
+                        {                           
+                            StatusButtons.map((button, index) => (
+                                
+                                    <button key={index} className={`cursor-pointer rounded-full border-2 w-4 h-4 ${active(button.index)}` } onClick={() => button.onClick(button.index)}>
+                                    </button>
+                            ))
+                        }                  
+                </div>  
             </div>
             
         </>

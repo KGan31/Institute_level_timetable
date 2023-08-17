@@ -181,14 +181,14 @@ tr:hover {background-color: coral;}
   box-sizing: border-box;
   display: block;
 }
-.login button {
+/* .login button {
   background: #f1356d;
   color: #fff;
   border: 0;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
-}
+} */
 /*blogs*/
 .blog-background{
   display: flex; 

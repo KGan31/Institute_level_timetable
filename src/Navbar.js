@@ -1,14 +1,17 @@
-import React,{useState} from "react";
+import React,{useState, useContext} from "react";
 import {Button} from './components/Button';
+import "./components/Button.css"
 import './components/Navbar.css';
 import {Link} from 'react-router-dom';
+import { AuthContext } from "./auth/AuthContext";
 
 function Navbar(){
     const [click,setClick]=useState(false);
-     const [dropdown,setDropdown]=useState(false);
+    const [dropdown,setDropdown]=useState(false);
     const handleClick=()=>setClick(!click);
     const closeMobileMenu=()=>setClick(false);
 
+    const context = useContext(AuthContext);
 
 const onMouseEnter=()=>{
     if(window.innerWidth<900)
@@ -29,6 +32,12 @@ const onMouseLeave=()=>{
         setDropdown(false);
     }
 };
+
+    const handleLogout = () => {
+        //call the logout function of the useContext
+        context.logout();
+    }
+
     return (
     <>
     <nav className="navbar">
@@ -54,13 +63,13 @@ const onMouseLeave=()=>{
             
             </li> 
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
             <Link to='/contact' className="nav-links" onClick={closeMobileMenu}>Contact
             </Link>
-            </li>
+            </li> */}
 
             <li className="nav-item">            
-            <Link to='/sign-up' className="nav-links-mobile" onClick={closeMobileMenu}>Login
+            <Link to='/sign-up' className="nav-links-mobile" onClick={closeMobileMenu}>dfdfdfdf
             </Link>
              
              </li> 
@@ -73,7 +82,15 @@ const onMouseLeave=()=>{
             </Link>
             </li>
          </ul>
-         <Button/>
+         {context.isAuthenticated ?
+            <Link to='signup'>
+                <button className='btn' onClick={handleLogout}>
+                    Logout
+                </button>
+            </Link>
+             :
+            <Button/> 
+        }
      </nav>
     </>
     );

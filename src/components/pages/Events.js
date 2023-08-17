@@ -1,7 +1,14 @@
-import React, {useState, useEffect, useDebugValue} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+import { AuthContext } from '../../auth/AuthContext';
+import AddEvent from './AddEvent';
 
 export default function Events(){
  const [eve , setEve] = useState([]);
+ const [display, setDisplay] = useState(false);
+
+ const context = useContext(AuthContext);
+  console.log(context);
+
   // const getEvents = async()=> {
     
   //   try {
@@ -140,6 +147,27 @@ export default function Events(){
               </div>
             </div>
           </div>
+
+          {/* //adding an event by the committee heads */}
+
+          {
+            context.isAuthenticated &&
+            !display &&
+            <div className='flex justify-center'>
+                <button 
+                  className='bg-green-600 transform transition hover:scale-90 px-5 py-3 rounded border shadow text-white font-bold flex gap-5'
+                  onClick={() => setDisplay(true)}
+                >
+                  
+                  Add Event
+                </button>
+            </div>
+          }
+
+          {
+            display &&
+            <AddEvent display = {setDisplay} />    
+          }
       </div>
       
     </>
